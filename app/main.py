@@ -4,7 +4,7 @@ from app.routes.category import router as category_router
 from app.database import get_db, engine, BaseModel
 from app.models.category import CategoryModel
 from app.models.user_data import UserDataModel
-
+from app.routes import tag_routes
 # Initialize FastAPI with metadata for Swagger
 app = FastAPI(
     title="Category Service API",
@@ -21,6 +21,8 @@ BaseModel.metadata.create_all(bind=engine)
 
 # Register routers
 app.include_router(category_router, prefix="/categories", tags=["categories"])
+app.include_router(tag_routes.router, prefix="/tag", tags=["tag"])
+
 
 @app.get("/")
 def read_root():

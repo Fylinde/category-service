@@ -6,3 +6,5 @@ psycopg2-binary
 pydantic
 pika
 python-dotenv
+slugify
+requests
