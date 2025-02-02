@@ -31,7 +31,7 @@ class AIModel:
                 "engagement_score": 0
             }
 
-    def suggest_category(self, db: Session, user_id: int) -> Dict[str, Any]:
+    def suggest_category(self, db: Session, user_id: str) -> Dict[str, Any]:
         """
         Suggest categories based on the user data by analyzing search history,
         interaction patterns, and past behaviors.
@@ -116,7 +116,7 @@ class AIModel:
             logger.error(f"Error calculating category scores: {str(e)}")
             return {}
 
-    def recommend_top_categories(self, db: Session, user_id: int, top_n: int = 5) -> List[Dict[str, Any]]:
+    def recommend_top_categories(self, db: Session, user_id: str, top_n: int = 5) -> List[Dict[str, Any]]:
         """
         Recommend the top N categories for the user based on their behavior and engagement.
         """
